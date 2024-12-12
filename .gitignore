@@ -1,0 +1,28 @@
+# Editor
+.vscode/*
+!.vscode/settings.shared.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea
+.history
+# Intermediate files
+build/*
+cmake-build*/*
+docs/build
+docs/source/api
+.cache/
+
+# Release files
+release/*
+!release/make_release.sh
+!release/publis_digest
+!release/README.md
+
+# ESP-IDF
+sdkconfig.old
+
+# Python
+venv
+
+# Generated files
+*version.h

@@ -1,0 +1,29 @@
+{
+	"name": "ESP-IDF",
+	"image": "espressif/idf:release-v5.4",
+	"workspaceFolder": "/workspace",
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/workspace,type=bind",
+		"source=/dev,target=/dev,type=bind"
+	],
+	"runArgs": [
+		"--name",
+		"DaphneEspContainer",
+		"--privileged"
+	],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"extensions": [
+		"espressif.esp-idf-extension",
+		"mcu-debug.peripheral-viewer",
+		"mcu-debug.rtos-views",
+		"mcu-debug.memory-view",
+		"swellaby.workspace-config-plus",
+		"xaver.clang-format",
+		"llvm-vs-code-extensions.vscode-clangd",
+		"streetsidesoftware.code-spell-checker",
+		"twxs.cmake"
+	],
+	"postCreateCommand": "apt-get update && apt-get install -y locales && apt-get install -y clang-format && locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 && echo 'export LANG=en_US.UTF-8' >> ~/.bashrc && echo 'export LANGUAGE=en_US:en' >> ~/.bashrc && echo 'export LC_ALL=en_US.UTF-8' >> ~/.bashrc && echo '. /opt/esp/idf/export.sh' >> ~/.bashrc && . /opt/esp/idf/export.sh"
+}
