@@ -15,8 +15,12 @@
 // ---------------------------------------------------------------------------
 
 #include "Controller.h"
+#include "Application/ApplicationTypes.h"
 
-#include "esp_log.h"
+#include <esp_log.h>
+#include <freertos/idf_additions.h>
+#include <freertos/projdefs.h>
+#include <portmacro.h>
 
 namespace {
 constexpr auto LOG_TAG = "Controller";
@@ -24,4 +28,7 @@ constexpr auto LOG_TAG = "Controller";
 
 Controller::Controller(){};
 
-void Controller::Start() { ESP_LOGI(LOG_TAG, "Start Application"); }
+void Controller::Start() {
+  ESP_LOGI(LOG_TAG, "Start Application");
+  m_ledService.Start();
+}
