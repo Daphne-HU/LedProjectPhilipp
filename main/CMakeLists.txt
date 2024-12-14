@@ -3,7 +3,8 @@ idf_component_register(
     "."
     "Application/Controller"
     "Application/Services"
-    "Application/Devices"       
+    "Application/Devices"    
+    "Application/Drivers"   
     "Application"
     INCLUDE_DIRS
     "."
@@ -11,4 +12,5 @@ idf_component_register(
     driver
     esp_timer
     spi_flash
+    bt
 )
