@@ -16,6 +16,7 @@
 
 #include "WS2812BLedDriver.h"
 #include "Application/ApplicationTypes.h"
+#include "soc/gpio_num.h"
 
 #include <array>
 #include <cstdint>
@@ -42,12 +43,10 @@ void WS2812BLedDriver::SetPower(bool powerOn) {
   ESP_LOGI(LOG_TAG, "%d", powerOn);
   if (powerOn) {
     ESP_LOGI(LOG_TAG, "power ON");
-    gpio_set_level(POWER_PIN, 0);
+    gpio_set_level(POWER_PIN, 1);
   } else {
     ESP_LOGI(LOG_TAG, "power OFF");
-    // NOTE: not working a the moment because it needs to be high (5v) and the
-    // esp only gives 3.3
-    gpio_set_level(POWER_PIN, 1);
+    gpio_set_level(POWER_PIN, 0);
   }
 }
 
@@ -86,7 +85,6 @@ void WS2812BLedDriver::setColor(RGB_t color) {
   ESP_LOGI(LOG_TAG, "set Colors");
   std::array<uint8_t, LED_COUNT * 3> led_data = {};
 
-  // Populate LED data with the specified color
   for (int i = 0; i < LED_COUNT; i++) {
     led_data[i * 3 + 0] = color.green; // Green first
     led_data[i * 3 + 1] = color.red;   // Red second

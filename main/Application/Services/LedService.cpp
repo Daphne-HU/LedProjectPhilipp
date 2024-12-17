@@ -34,7 +34,7 @@ void LedService::Start() {
   m_nimBLEDriver.Init();
 
   m_ledDriver.SetPower(true);
-  m_ledDriver.setColor(RGB_t{.red = 255, .green = 5, .blue = 0});
+  m_ledDriver.setColor(RGB_t{.red = 255, .green = 100, .blue = 30});
 }
 
 void LedService::NewRGBValueReceived(RGB_t newRGBVal) {
